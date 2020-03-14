@@ -1,0 +1,29 @@
+{
+  "name": "online-shop",
+  "version": "1.0.0",
+  "description": "An alternative online shop for bag designer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michalswiatlowski/online-shop.git"
+  },
+  "author": "Michal Swiatlowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michalswiatlowski/online-shop/issues"
+  },
+  "homepage": "https://github.com/michalswiatlowski/online-shop#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.4",
+    "nodemon": "^2.0.2"
+  }
+}
