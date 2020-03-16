@@ -1,11 +1,20 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
-    <router-link to="/products">Gallery</router-link>
-    <router-view />
+  <div>
+    <HeaderComponent></HeaderComponent>
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
-<script></script>
+<script>
+import HeaderComponent from './components/HeaderComponent.vue';
+import FooterComponent from './components/FooterComponent.vue';
+
+export default {
+  components: {
+    HeaderComponent,
+    FooterComponent,
+  },
+};
+</script>
 
 <style></style>
