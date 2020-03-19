@@ -20,6 +20,11 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
 ul,
 ol {
   list-style-type: none;
