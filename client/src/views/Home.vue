@@ -1,13 +1,23 @@
 <template>
   <div>
-    <h1>
-      Home Page
-    </h1>
+    <HeaderComponent></HeaderComponent>
+
+    <h1>home</h1>
+
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
 <script>
+import HeaderComponent from '../components/HeaderComponent.vue';
+import FooterComponent from '../components/FooterComponent.vue';
 
+export default {
+  components: {
+    HeaderComponent,
+    FooterComponent,
+  },
+};
 </script>
 
 <style></style>

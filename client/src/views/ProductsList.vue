@@ -1,11 +1,19 @@
 <template>
   <div>
+    <HeaderComponent></HeaderComponent>
+
     <span>Results:</span>
-    <div v-for="product in products" v-bind:key="product._id">Product: {{ product.model }} created at: {{ product.createdAt }}</div>
+    <div v-for="product in products" v-bind:key="product._id">
+      Product: {{ product.model }} created at: {{ product.createdAt }}
+    </div>
+
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
 <script>
+import HeaderComponent from '../components/HeaderComponent.vue';
+import FooterComponent from '../components/FooterComponent.vue';
 import ProductService from '../ProductService';
 
 export default {
@@ -22,6 +30,10 @@ export default {
     } catch (err) {
       this.error = err.message;
     }
+  },
+  components: {
+    HeaderComponent,
+    FooterComponent,
   },
 };
 </script>
