@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <nav class="nav">
     <span class="logo" @click="hideMenu">
       <router-link to="/">Funemki</router-link>
     </span>
@@ -16,7 +16,7 @@
         <span class="hamburger__inner"></span>
       </span>
     </button>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -35,11 +35,11 @@ export default {
     },
   },
   mounted() {
-    document.addEventListener('click', ()=> {
-    if (this.isActive == true) {
-      this.hideMenu();
-    }
-      });
+    document.addEventListener('click', () => {
+      if (this.isActive == true) {
+        this.hideMenu();
+      }
+    });
   },
 };
 </script>
@@ -50,7 +50,6 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid grey;
 }
 
 .logo {
@@ -59,23 +58,59 @@ export default {
 }
 
 .nav-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  display: block;
+  background-color: rgba(38, 84, 133, 0.74);
+  z-index: 1;
+  height: 0;
+  width: 0;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .nav-list__item {
-  width: 100px;
   text-align: center;
+  display: block;
+  width: auto;
+  float: right;
+  margin: 3px;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .nav-list__item a {
+  display: block;
   padding: 5px 10px;
+  color: var(--white);
+}
+
+.nav-list__item .router-link-active {
+  color: var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
+.nav-active {
+  height: 400px;
+  width: 400px;
+  right: -160px;
+  top: -160px;
+}
+
+.nav-active > .nav-list__item:first-child {
+  margin-top: 220px;
+}
+
+.nav-active > .nav-list__item {
+  margin-right: 160px;
+  opacity: 1;
 }
 
 .hamburger {
   padding: 5px;
-  display: none;
+  display: inline-block;
   z-index: 2;
 }
 
@@ -130,50 +165,41 @@ export default {
   background-color: transparent;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .hamburger {
-    display: inline-block;
+    display: none;
   }
 
   .nav-list {
-    position: absolute;
-    display: block;
-    background-color: rgba(38, 84, 133, 0.74);
-    color: var(--white);
-    z-index: 1;
-    height: 0;
-    width: 0;
-    right: 0;
-    top: 0;
-    border-radius: 50%;
-
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .nav-list__item {
-    display: block;
+    position: static;
+    overflow: auto;
+    border-radius: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: auto;
-    padding: 5px;
-    float: right;
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    height: auto;
+    background-color: transparent;
   }
-
-  .nav-active {
-    height: 400px;
-    width: 400px;
-    right: -160px;
-    top: -160px;
-  }
-
-  .nav-active > .nav-list__item:first-child {
-    margin-top: 220px;
-  }
-
-  .nav-active > .nav-list__item {
-    margin-right: 160px;
+  .nav-list__item {
+    width: 104px;
     opacity: 1;
+  }
+
+  .nav-list__item a {
+    color: var(--lightgrey);
+    border-bottom: 1px solid transparent;
+    transition: 0.2s ease-in-out;
+  }
+
+  .nav-list__item .router-link-active {
+    color: var(--grey);
+    border-bottom-color: var(--grey);
+  }
+
+  .nav-list__item:hover a {
+    color: var(--grey);
+    transition: 0.2s ease-in-out;
   }
 }
 </style>
