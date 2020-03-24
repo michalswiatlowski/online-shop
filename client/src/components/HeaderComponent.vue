@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
     <span class="logo" @click="hideMenu">
-      <router-link to="/">Funemki</router-link>
+      <router-link to="/"><img src="../assets/logo.png" alt="logo"/></router-link>
     </span>
     <ul class="nav-list" :class="{ 'nav-active': isActive }">
       <li class="nav-list__item" @click="hideMenu">
@@ -46,15 +46,27 @@ export default {
 
 <style scoped>
 .nav {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0 10px 0 30px;
 }
 
 .logo {
   font-size: 2.2rem;
   font-family: var(--subFont);
+}
+
+.logo a {
+  display: flex;
+}
+
+.logo img {
+  height: 30px;
 }
 
 .nav-list {
@@ -112,6 +124,7 @@ export default {
   padding: 5px;
   display: inline-block;
   z-index: 2;
+  outline: none;
 }
 
 .hamburger__box {
@@ -134,7 +147,7 @@ export default {
   width: 100%;
   height: 3px;
   border-radius: 2px;
-  background-color: var(--black);
+  background-color: var(--grey);
   position: absolute;
 }
 
@@ -188,6 +201,9 @@ export default {
 
   .nav-list__item a {
     color: var(--lightgrey);
+    font-size: 0.9rem;
+    letter-spacing: 0.06rem;
+    padding: 10px;
     border-bottom: 1px solid transparent;
     transition: 0.2s ease-in-out;
   }
