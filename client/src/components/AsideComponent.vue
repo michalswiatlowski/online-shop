@@ -41,7 +41,7 @@ export default {};
   .aside {
     position: fixed;
     width: 100px;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 70px);
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
