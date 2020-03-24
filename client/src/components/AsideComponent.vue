@@ -4,8 +4,12 @@
       <span><strong>Aside Header</strong></span>
     </div>
     <div class="social-media">
-      <i class="fab fa-facebook-square"></i>
-      <i class="fab fa-instagram"></i>
+      <a href="#">
+        <i class="fab fa-facebook-square"></i>
+      </a>
+      <a gref="#">
+        <i class="fab fa-instagram"></i>
+      </a>
     </div>
   </aside>
 </template>
@@ -25,11 +29,18 @@ export default {};
   display: none;
 }
 
-.social-media i {
-  padding: 5px;
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media a {
+  padding: 4px 8px;
   font-size: 1.2rem;
   color: var(--lightgrey);
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .social-media i:hover {
@@ -58,8 +69,8 @@ export default {};
     color: var(--lightgrey);
   }
 
-  .social-media i {
-    display: block;
+  .social-media {
+    flex-direction: column;
   }
 }
 </style>
