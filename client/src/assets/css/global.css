@@ -23,9 +23,8 @@ html {
 }
 
 body {
-  overflow-x: hidden;
   width: 100vw;
-  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 ul,
@@ -45,4 +44,9 @@ button {
   border-width: 0;
   padding: 0;
   cursor: pointer;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding-top: 70px;
 }
