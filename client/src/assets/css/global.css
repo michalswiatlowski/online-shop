@@ -4,7 +4,7 @@
   --black: rgb(15, 13, 10);
   --white: rgb(250, 250, 250);
   --grey: rgb(68, 68, 68);
-  --lightgrey: rgb(128, 128, 128); 
+  --lightgrey: rgb(128, 128, 128);
 }
 
 html {
@@ -46,7 +46,17 @@ button {
   cursor: pointer;
 }
 
-.app-container {
+.container {
+  position: relative;
   min-height: 100vh;
-  padding-top: 70px;
+  top: 70px;
+  margin: 0 5%;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin: 0 auto;
+    width: min(calc(100vw - 200px), 80%);
+  }
 }
