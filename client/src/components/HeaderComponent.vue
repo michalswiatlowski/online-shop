@@ -54,6 +54,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0 10px 0 30px;
+  z-index: 2;
 }
 
 .logo {
