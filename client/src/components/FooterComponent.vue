@@ -9,16 +9,16 @@
 export default {
   data() {
     return {
-      currentYear: (new Date()).getFullYear(),
-    }
-  }
-}
+      currentYear: new Date().getFullYear(),
+    };
+  },
+};
 </script>
 
 <style scoped>
 .footer {
-text-align: center;
-padding: 10px;
+  text-align: center;
+  padding: 10px;
 }
 
 .paragraph {
@@ -29,10 +29,10 @@ padding: 10px;
 
 a.paragraph:hover {
   color: var(--grey);
-  transition: 0.2s
+  transition: 0.2s;
 }
 
-@media (min-width: 768px)  {
+@media (min-width: 768px) {
   .footer {
     padding-left: 100px;
     text-align: left;

@@ -2,8 +2,9 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <div class="container">
-      <AsideComponent></AsideComponent>
+      
     </div>
+    <AsideComponent></AsideComponent>
     <FooterComponent></FooterComponent>
   </div>
 </template>

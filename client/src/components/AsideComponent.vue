@@ -51,6 +51,7 @@ export default {};
 @media (min-width: 768px) {
   .aside {
     position: fixed;
+    top: 70px;
     width: 100px;
     min-height: calc(100vh - 70px);
     flex-direction: column;

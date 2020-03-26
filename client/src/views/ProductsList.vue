@@ -1,12 +1,13 @@
 <template>
   <div>
     <HeaderComponent></HeaderComponent>
-
-    <span>Results:</span>
-    <div v-for="product in products" v-bind:key="product._id">
-      Product: {{ product.model }} created at: {{ product.createdAt }}
+    <div class="container">
+      <span>Results:</span>
+      <div v-for="product in products" v-bind:key="product._id">
+        Product: {{ product.model }} created at: {{ product.createdAt }}
+      </div>
     </div>
-
+    <AsideComponent></AsideComponent>
     <FooterComponent></FooterComponent>
   </div>
 </template>
@@ -14,6 +15,7 @@
 <script>
 import HeaderComponent from '../components/HeaderComponent.vue';
 import FooterComponent from '../components/FooterComponent.vue';
+import AsideComponent from '../components/AsideComponent.vue';
 import ProductService from '../ProductService';
 
 export default {
@@ -34,6 +36,7 @@ export default {
   components: {
     HeaderComponent,
     FooterComponent,
+    AsideComponent,
   },
 };
 </script>
