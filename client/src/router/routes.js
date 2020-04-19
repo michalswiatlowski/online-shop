@@ -23,7 +23,13 @@ export const routes = [
     components: {
       default: ProductsList,
     },
-    children: [{ path: ':id', component: Product }],
+  },
+  {
+    path: '/galeria/:id',
+    name: 'product',
+    components: {
+      default: Product,
+    },
   },
   {
     path: '*',
