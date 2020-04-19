@@ -5,10 +5,10 @@
     </span>
     <ul class="nav-list" :class="{ 'nav-active': isActive }">
       <li class="nav-list__item" @click="hideMenu">
-        <router-link to="/products">Galeria</router-link>
+        <router-link to="/galeria">Galeria</router-link>
       </li>
       <li class="nav-list__item" @click="hideMenu">
-        <router-link to="/about">O mnie</router-link>
+        <router-link to="/omnie">O mnie</router-link>
       </li>
     </ul>
     <button class="hamburger" @click.stop="toggleMenu" :class="{ 'hamburger-active': isActive }">
