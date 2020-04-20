@@ -108,7 +108,7 @@ export default {
 .nav-active {
   height: 400px;
   width: 400px;
-  right: -160px;
+  right: -150px;
   top: -160px;
 }
 
@@ -122,7 +122,7 @@ export default {
 }
 
 .hamburger {
-  padding: 5px;
+  padding: 10px;
   display: inline-block;
   z-index: 2;
   outline: none;
