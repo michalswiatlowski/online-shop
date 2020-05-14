@@ -2,7 +2,7 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <div class="container">
-      
+      This is a home route
     </div>
     <AsideComponent></AsideComponent>
     <FooterComponent></FooterComponent>

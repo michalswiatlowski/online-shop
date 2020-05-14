@@ -1,6 +1,7 @@
 import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 import ProductsList from '../views/ProductsList.vue';
+import Cetegories from '../views/Categories.vue';
 import Product from '../views/Product.vue';
 
 export const routes = [
@@ -12,20 +13,39 @@ export const routes = [
     },
   },
   {
-    path: '/omnie',
+    path: '/o-mnie',
     name: 'About',
     components: {
       default: About,
     },
   },
   {
-    path: '/galeria',
+    path: '/kategorie',
+    components: {
+      default: Cetegories,
+    },
+  },
+  {
+    path: '/torebki',
+    components: {
+      default: ProductsList,
+    }
+  },
+  {
+    path: '/bizuteria',
     components: {
       default: ProductsList,
     },
   },
   {
-    path: '/galeria/:id',
+    path: '/torebki/:id',
+    name: 'product',
+    components: {
+      default: Product,
+    },
+  },
+  {
+    path: '/bizuteria/:id',
     name: 'product',
     components: {
       default: Product,

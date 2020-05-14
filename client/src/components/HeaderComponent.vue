@@ -5,10 +5,13 @@
     </span>
     <ul class="nav-list" :class="{ 'nav-active': isActive }">
       <li class="nav-list__item" @click="hideMenu">
-        <router-link to="/galeria">Galeria</router-link>
+        <router-link to="/torebki">Torebki</router-link>
       </li>
       <li class="nav-list__item" @click="hideMenu">
-        <router-link to="/omnie">O mnie</router-link>
+        <router-link to="/bizuteria">Biżuteria</router-link>
+      </li>
+      <li class="nav-list__item" @click="hideMenu">
+        <router-link to="/o-mnie">O mnie</router-link>
       </li>
     </ul>
     <button class="hamburger" @click.stop="toggleMenu" :class="{ 'hamburger-active': isActive }">
@@ -164,7 +167,7 @@ export default {
 }
 
 .hamburger__inner::after {
-  top: 10px;
+  top: 10px;  
 }
 
 .hamburger-active .hamburger__inner::before {
