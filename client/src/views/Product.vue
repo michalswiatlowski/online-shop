@@ -20,11 +20,6 @@ export default {
     goBack() {
       this.$router.back();
     },
-    // async loadProduct(id) {
-    //   console.log(id, 'id changed');
-    //   this.product = [];
-    //   this.product = await ProductService.getProduct(this.route);
-    // },
   },
   watch: {
     '$route.params.id': async function() {
