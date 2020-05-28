@@ -16,6 +16,19 @@ class ProductService {
       return err;
     }
   }
+
+  static async getProduct(id) {
+    const res = await axios.get(url);
+    try {
+      const data = res.data;
+      return data.filter((product) => {
+        return product._id === id;
+      });
+    } catch (err) {
+      return err;
+    }
+  }
+
   // Post Products
   static insertProduct(productData) {
     return axios.post(url, { productData });
