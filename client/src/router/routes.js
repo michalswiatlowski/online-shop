@@ -3,6 +3,12 @@ import About from '../views/About.vue';
 import ProductsList from '../views/ProductsList.vue';
 import Cetegories from '../views/Categories.vue';
 import Product from '../views/Product.vue';
+import DashboardLogin from '../views/dashboard/Login.vue';
+import DashboardPanel from '../views/dashboard/Panel.vue';
+import DashboardStart from '../views/dashboard/Start.vue';
+import DashboardProducts from '../views/dashboard/Products.vue';
+import DashboardProductAdd from '../views/dashboard/ProductAdd.vue';
+import DashboardProductEdit from '../views/dashboard/ProductEdit.vue';
 
 export const routes = [
   {
@@ -50,6 +56,27 @@ export const routes = [
     components: {
       default: Product,
     },
+  },
+  {
+    path: '/dashboard/login',
+    name: 'login',
+    components: {
+      default: DashboardLogin,
+    }
+  },
+  {
+    path: '/dashboard',
+    name: 'panel',
+    components: {
+      default: DashboardPanel,
+    },
+    children: [
+      { path: '', component: DashboardStart},
+      { path: 'products', component: DashboardProducts},
+      { path: 'products/new', component: DashboardProductAdd},
+      { path: 'products/:id', component: DashboardProductEdit},
+      // { path: 'products/:id/edit', component: DashboardStart},
+    ]
   },
   {
     path: '*',
