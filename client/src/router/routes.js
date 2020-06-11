@@ -72,9 +72,9 @@ export const routes = [
     },
     children: [
       { path: '', component: DashboardStart},
-      { path: 'products', component: DashboardProducts},
+      { path: 'products', name: 'showProducts', component: DashboardProducts},
       { path: 'products/new', component: DashboardProductAdd},
-      { path: 'products/:id', component: DashboardProductEdit},
+      { path: 'products/:id', name: 'editProduct', component: DashboardProductEdit},
       // { path: 'products/:id/edit', component: DashboardStart},
     ]
   },

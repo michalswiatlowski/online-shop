@@ -31,11 +31,19 @@ class ProductService {
 
   // Post Products
   static insertProduct(productData) {
+    console.log(productData);
     return axios.post(url, { productData });
   }
   // Delete Products
   static deleteProduct(id) {
-    return axios.delete(`${url}${id}`);
+    console.log(`${url}${id}`);
+    return axios.delete(`${url}${id}`, id);
+  }
+
+  // Edit Product
+  static editProduct(productData) {
+    console.log(productData);
+    return axios.put(`${url}${productData._id}`, { productData });
   }
 }
 

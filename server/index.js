@@ -2,10 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const products = require('./routes/api/products');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 
 const app = express();
+
+mongoose.connect(process.env.DB_MONGO_URI, {dbName: 'funemki', useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.set('useFindAndModify', false);
 
 app.use(bodyParser.json());
 app.use(cors());

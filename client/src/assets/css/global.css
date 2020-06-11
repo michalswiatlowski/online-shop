@@ -5,6 +5,8 @@
   --white: rgb(250, 250, 250);
   --grey: rgb(68, 68, 68);
   --lightgrey: rgb(128, 128, 128);
+  --altColor:rgba(38, 84, 133, 0.74);
+
 }
 
 html {
@@ -44,6 +46,9 @@ button {
   border-width: 0;
   padding: 0;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {

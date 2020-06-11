@@ -1,31 +1,70 @@
 const express = require('express');
 const mongodb = require('mongodb');
+const Product = require('../../../models/product');
 require('dotenv').config();
 
 const router = express.Router();
 
 // GET ROUTE
 router.get('/', async (req, res) => {
-  const products = await loadProductsCollection();
-  res.send(await products.find().toArray());
+  Product.find({}, function (err, allProducts) {
+    if (err) {
+      console.log('An error occured: ', err);
+    } else {
+      res.status(200).send(allProducts);
+    }
+  });
 });
 
-// POST ROUTE
+//Create ***************
 router.post('/', async (req, res) => {
-  const products = await loadProductsCollection();
-  await products.insertOne({
-    model: req.body.model,
-    price: req.body.prize,
-    createdAt: new Date(),
+  const newProduct = await {
+    name: req.body.productData.name,
+    seoTitle: req.body.productData.seoTitle,
+    description: req.body.productData.description,
+    price: req.body.productData.price,
+    category: req.body.productData.category,
+    availability: req.body.productData.availability,
+    pictures: req.body.productData.pictures,
+    position: req.body.productData.position,
+    promotion: req.body.productData.promotion,
+    isShow: req.body.productData.isShow,
+    additionalInfo: req.body.productData.additionalInfo,
+  };
+  Product.create(newProduct, (err, newProduct) => {
+    if (err) {
+      console.log('An error occured: ', err);
+    } else {
+      res.status(201).send({ id: newProduct._id, message: 'Produkt został pomyślnie dodany' });
+    }
   });
-  res.status(201).send();
 });
 
 // DELETE ROUTE
 router.delete('/:id', async (req, res) => {
-  const products = await loadProductsCollection();
-  await products.deleteOne({ _id: new mongodb.ObjectID(req.params.id) });
-  res.status(200).send();
+  Product.deleteOne({ _id: req.params.id }, (err, result) => {
+    if (err) {
+      console.log('An error occured: ', err);
+    } else {
+      res.status(201).send({ message: 'Produkt został pomyślnie usunięty' });
+    }
+  });
+});
+
+// EDIT ROUTE
+router.put('/:id', async (req, res) => {
+  console.log('backend hit');
+  console.log(req.body.productData);
+
+  Product.findByIdAndUpdate(req.params.id, req.body.productData,
+    (err, result) => {
+      console.log('method runs')
+      if (err) {
+        console.log('An error occured: ', err);
+      } else {
+        res.status(201).send({ id: result._id, message: 'Produkt został pomyślnie zaktualizowany' });
+      }
+    });
 });
 
 async function loadProductsCollection() {

@@ -76,7 +76,7 @@ export default {
 .nav-list {
   position: absolute;
   display: block;
-  background-color: rgba(38, 84, 133, 0.74);
+  background-color: var(--altColor);
   z-index: 1;
   height: 0;
   width: 0;

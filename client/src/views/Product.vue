@@ -1,8 +1,19 @@
 <template>
+  <!-- 
+    h1 - to nazwa plus np keywords
+    keywords można dać ewentualnie w h2
+    'Unlike H1 tag that is used once, H2 tags can be used several times, meaning you can add in your keywords here as well. The best practice is to add your primary keyword in three to four H2 tags.'
+
+   -->
   <div class="product-cart">
-    <p>Id route: {{ $route.params.id }}</p>
-    <p>{{ product }}</p>
+    <div class="gallery-section"></div>
+    <div class="sidebar-section">
+
     <a @click="$router.back()">Powrót</a>
+    </div>
+    <div class="description-section"></div>
+
+    <p>{{ product }}</p>
   </div>
 </template>
 

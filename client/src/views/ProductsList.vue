@@ -13,7 +13,7 @@
               alt=""
               title=""
             />
-            <h2 class="product-card__title">{{ product.model }}</h2>
+            <h2 class="product-card__title">{{ product.name }}</h2>
           </router-link>
         </li>
       </ul>
