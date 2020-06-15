@@ -50,6 +50,7 @@
             </td>
             <td>
               <div
+                v-if="product.additionalInfo.text"
                 class="rounded-rectangle"
                 :style="{
                   backgroundColor: product.additionalInfo.backgroundColor,
