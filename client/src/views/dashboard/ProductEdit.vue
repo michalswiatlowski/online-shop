@@ -139,6 +139,7 @@
 
 <script>
 import ProductService from '../../ProductService';
+
 export default {
   data() {
     return {

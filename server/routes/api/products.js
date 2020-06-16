@@ -53,13 +53,10 @@ router.delete('/:id', async (req, res) => {
 
 // EDIT ROUTE
 router.put('/:id', async (req, res) => {
-  console.log('backend hit');
-  console.log(req.body.productData);
 
   Product.findByIdAndUpdate(req.params.id, req.body.productData,
     (err, result) => {
-      console.log('method runs')
-      if (err) {
+        if (err) {
         console.log('An error occured: ', err);
       } else {
         res.status(201).send({ id: result._id, message: 'Produkt został pomyślnie zaktualizowany' });

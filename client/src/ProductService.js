@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 
 const url = 'http://localhost:4000/api/products/';
 
@@ -10,7 +11,8 @@ class ProductService {
       const data = res.data;
       return data.map((product) => ({
         ...product,
-        createdAt: new Date(product.createdAt),
+        createdAt: moment(product.createdAt).format("DD/MM/YYYY"),
+        isNew: moment().diff(product.createdAt) < 86400000 * 30 // 30 days
       }));
     } catch (err) {
       return err;

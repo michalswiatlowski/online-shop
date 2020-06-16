@@ -1,6 +1,7 @@
-var mongoose = require('mongoose');
+const moment = require('moment');
+const mongoose = require('mongoose');
 
-var productSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -36,10 +37,13 @@ var productSchema = new mongoose.Schema({
   additionalInfo: {
     type: Object,
   },
-  createdAd: {
+  createdAt: {
     type: Date,
-    default: Date.now,
+    default: moment(),
   },
+  isNewManualy: {
+    type: Boolean,
+  }
 },
 { collection : 'products'});
 

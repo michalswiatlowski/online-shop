@@ -23,6 +23,7 @@
             <th>Dodatkowy tekst - aktywność</th>
             <th>Dodatkowy tekst</th>
             <th>Utworzony</th>
+            <th>Nowość</th>
           </tr>
         </thead>
         <tbody>
@@ -60,7 +61,8 @@
                 {{ product.additionalInfo.text }}
               </div>
             </td>
-            <td>{{ product.createdAt }}</td>
+            <td class="center">{{ product.createdAt }}</td>
+            <td class="center"><input type="checkbox" name="" id="" :checked="product.isNew" @click.prevent /></td>
           </tr>
         </tbody>
       </table>
