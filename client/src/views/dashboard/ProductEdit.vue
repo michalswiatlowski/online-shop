@@ -130,7 +130,7 @@
       <div v-if="message" class="update-message">{{ message }}</div>
       <div>
         <button class="btn-submit left" @click.prevent="updateProduct">Aktualizuj</button>
-        <button class="btn-warning left" @click.prevent="goBack">Anuluj</button>
+        <router-link class="btn-warning left" tag="button" to="/dashboard/products">Powrót</router-link>
         <button class="btn-cancel left" @click.prevent="deleteProduct">Usuń</button>
       </div>
     </form>
