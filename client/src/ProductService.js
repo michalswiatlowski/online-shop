@@ -47,6 +47,13 @@ class ProductService {
     console.log(productData);
     return axios.put(`${url}${productData._id}`, { productData });
   }
+
+  // Upload Image
+  static uploadFile(file, id) {
+    console.log(file, id);
+    console.log(`${url}${id}/images/`);
+    return axios.post(`${url}${id}/images/`, file, id);
+  }
 }
 
 export default ProductService;

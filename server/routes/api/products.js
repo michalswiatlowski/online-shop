@@ -1,9 +1,10 @@
 const express = require('express');
-const mongodb = require('mongodb');
+const multer = require('multer');
 const Product = require('../../../models/product');
 require('dotenv').config();
 
 const router = express.Router();
+const upload = multer({ dest: 'uploads/' })
 
 // GET ROUTE
 router.get('/', async (req, res) => {
@@ -64,13 +65,27 @@ router.put('/:id', async (req, res) => {
     });
 });
 
-async function loadProductsCollection() {
-  const client = await mongodb.MongoClient.connect(process.env.DB_MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+router.post('/:id/images', async(req, res) => {
+  const newImage = await {
+    name: req.body.productData.name,
+    seoTitle: req.body.productData.seoTitle,
+    description: req.body.productData.description,
+    price: req.body.productData.price,
+    category: req.body.productData.category,
+    availability: req.body.productData.availability,
+    pictures: req.body.productData.pictures,
+    position: req.body.productData.position,
+    promotion: req.body.productData.promotion,
+    isShow: req.body.productData.isShow,
+    additionalInfo: req.body.productData.additionalInfo,
+  };
+  Product.create(newProduct, (err, newProduct) => {
+    if (err) {
+      console.log('An error occured: ', err);
+    } else {
+      res.status(201).send({ id: newProduct._id, message: 'Produkt został pomyślnie dodany' });
+    }
   });
-
-  return client.db('funemki').collection('products');
-}
+})
 
 module.exports = router;

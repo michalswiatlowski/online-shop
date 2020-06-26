@@ -4,9 +4,21 @@
       <p class="error-message">{{ loadError }}</p>
       <button class="btn-cancel left" @click.prevent="goBack">Powrót</button>
     </div>
-    <form v-else class="form" @submit.prevent="">
+    <form v-if="!loadError" class="form" @submit.prevent="" enctype="multipart/form-data">
       <h2 class="form-title">{{ loadedProduct.name }}<span class="text-light"> - edycja</span></h2>
+      <div class="text-heavy">Zdjęcia:</div>
+      <div v-if="!selectedImage">
+        <h2>Select an image</h2>
+        <input type="file" @change="onFileChanged" />
+      </div>
+      <div v-else>
+        <img class="img-preview" :src="selectedImage" />
+        <button class="btn-cancel left" @click.prevent="removeImage">Usuń zdjęcie</button>
+        <button class="btn-submit left" @click.prevent="onUpload">Dodaj zdjęcie</button>
+      </div>
+    </form>
 
+    <form v-if="!loadError" class="form" @submit.prevent="">
       <div class="text-heavy">Aktywność na stronie:</div>
       <label class="flex-label text-light" for="isShow">
         <input
@@ -148,6 +160,7 @@ export default {
       loadError: null,
       message: '',
       route: this.$route.params.id,
+      selectedImage: null,
     };
   },
   computed: {
@@ -178,6 +191,32 @@ export default {
         const message = res.data.message;
         this.message = message;
       });
+    },
+    onFileChanged(event) {
+      this.selectedImage = event.target.files[0];
+      if(!this.selectedImage) {
+        return
+      } else {
+        this.createImage(this.selectedImage)
+      }
+    },
+    createImage(file) {
+      this.selectedImage = new Image();
+      const reader = new FileReader();
+      const vm = this;
+
+      reader.onload = (e) => {
+        vm.selectedImage = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    },
+    removeImage() {
+      this.selectedImage = null;
+    },
+    onUpload() {
+      if (this.selectedImage) {
+        ProductService.uploadFile(this.selectedImage, this.$route.params.id);
+      }
     },
   },
   watch: {
@@ -245,6 +284,13 @@ export default {
   border-radius: 10px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
+}
+
+.img-preview {
+  width: 100px;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .form-textarea {
